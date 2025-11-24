@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quarterly Earnings — Reveal.js</title>
+
+  <!-- Reveal core stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/dist/reveal.css">
+  <!-- Theme (choose one) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/dist/theme/solarized.css" id="theme">
+
+  <!-- Highlight.js for code highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/default.min.css">
+
+  <style>
+    /* small visual customization */
+    .company-email { font-size: 0.9rem; opacity: 0.9; }
+    .financial-formula { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide -->
+      <section>
+        <h1>Q3 Quarterly Earnings</h1>
+        <p class="company-email">Contact: 24f1002750@ds.study.iitm.ac.in</p>
+        <p class="fragment">Prepared by: Technical Consulting — Financial Institution</p>
+        <aside class="notes">
+          Welcome slide. Say who you are; mention goals: walk stakeholders through key metrics & outlook.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (uses the markdown plugin) -->
+      <section data-markdown>
+        <textarea data-template>
+## Agenda (Markdown slide)
+
+- Executive summary
+- Revenue & profitability
+- KPIs & variances
+- Outlook and Q&A
+        </textarea>
+        <aside class="notes">
+          Summarize the slide quickly. Use this agenda slide to set expectations.
+        </aside>
+      </section>
+
+      <!-- Slide with fragments (animated items) -->
+      <section>
+        <h2>Top-line Highlights</h2>
+        <p class="fragment">Revenue: <strong>$1.24B</strong></p>
+        <p class="fragment">Net Income: <strong>$210M</strong></p>
+        <p class="fragment">EPS (diluted): <strong>$1.12</strong></p>
+        <aside class="notes">
+          Reveal each fragment with a click. Explain drivers as each point appears.
+        </aside>
+      </section>
+
+      <!-- Financial formula (math) -->
+      <section>
+        <h2>Key Financial Formula</h2>
+        <p>Return on Equity (ROE):</p>
+        <p class="financial-formula">$$\mathrm{ROE} = \dfrac{\text{Net Income}}{\text{Average Shareholders' Equity}}$$</p>
+        <aside class="notes">
+          Show calculation: use Net Income and average equity from balance sheet.
+        </aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h2>Sample: Simple Earnings Projection (Python)</h2>
+        <pre><code class="language-python">
+# simple forward projection
+revenue = 1_240_000_000
+growth = 0.03  # 3% next quarter
+proj_revenue = revenue * (1 + growth)
+print(f"Projected next-quarter revenue: ${proj_revenue:,.0f}")
+        </code></pre>
+        <aside class="notes">
+          Call out the assumptions (3% growth). Explain how sensitivity would be run.
+        </aside>
+      </section>
+
+      <!-- Technical slide with a larger code snippet -->
+      <section>
+        <h2>API Example — Retrieve KPIs (curl)</h2>
+        <pre><code class="language-bash">
+curl -X GET "https://api.example.com/v1/kpis?quarter=Q3" \
+  -H "Authorization: Bearer <TOKEN>" \
+  -H "Accept: application/json"
+        </code></pre>
+        <aside class="notes">
+          Mention security: tokens, rate limits, and caching strategy for dashboard.
+        </aside>
+      </section>
+
+      <!-- Closing slide -->
+      <section>
+        <h2>Questions</h2>
+        <p>Reach me at: <span class="company-email">24f1002750@ds.study.iitm.ac.in</span></p>
+        <aside class="notes">
+          Invite questions. Provide next steps and contact info.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js & plugins (non-module builds) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/dist/reveal.js"></script>
+
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/math/math.js"></script>
+
+  <!-- MathJax config (Reveal math plugin will call MathJax) -->
+  <script>
+    // Initialize Reveal
+    Reveal.initialize({
+      hash: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ],
+      // math plugin uses MathJax automatically
+      math: {
+        // Use MathJax configuration if needed
+        mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js'
+      },
+      // highlight.js will auto-detect languages (we included the CSS above)
+      highlight: {
+        // optional settings
+      }
+    });
+  </script>
+</body>
+</html>
